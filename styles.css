@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -13,11 +14,15 @@ html, body {
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #ffe4c4;
     font-family: 'Ubuntu', sans-serif;
+    gap: 20px;
 }
+
+/* form element styles */
 
 #form-container {
     height: 60%;
@@ -49,6 +54,7 @@ html, body {
     border-radius: 5px;
     margin: 20px 0 0 0;
     font-family: 'Ubuntu', sans-serif;
+    cursor: pointer;
 }
 
 .form-input {
@@ -59,3 +65,32 @@ html, body {
     font-weight: 400;
 }
 
+/* #movie-box {
+    width: 50%;
+    background-color: #f2b179;
+    color: #5d4d32;
+} */
+
+#movie-list {
+    width: 50%;
+}
+
+.movie-info {
+    width: 100%;
+    /* background-color: #f59563; */
+    background-color: #f2b179;
+    /* background-color:#312d2d; */
+    color: #5d4d32;
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.movie-dtl {
+    display: flex;
+    justify-content: space-between;
+}
+
+.movie-dtl > i {
+    cursor: pointer;
+}
