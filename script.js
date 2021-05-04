@@ -84,6 +84,10 @@ addMovieBtn.addEventListener('click', (e) => {
     const movie = new Movie(name, director, year);
     movie.addMovie();
 
+    document.getElementById('name').value = '';
+    document.getElementById('director').value = '';
+    document.getElementById('year').value = '';
+
 });
 
 
