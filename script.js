@@ -50,6 +50,7 @@ class Movie {
     static displayMovies(movieArr) {
 
         const movieLIst = document.getElementById('movie-list');
+        movieLIst.innerHTML = '';
         movieArr.forEach((movie) => {
             Movie.creatMovieInfo(movieLIst, movie);
         });
