@@ -65,26 +65,17 @@ html, body {
     font-weight: 400;
 }
 
-/* #movie-box {
-    width: 50%;
-    background-color: #f2b179;
-    color: #5d4d32;
-} */
-
 #movie-list {
     width: 50%;
 }
 
 .movie-info {
     width: 100%;
-    /* background-color: #f59563; */
     background-color: #f2b179;
-    /* background-color:#312d2d; */
     color: #5d4d32;
     padding: 20px;
     border-radius: 5px;
     margin-top: 10px;
-    /* transition: all 0.5s; */
 }
 
 .movie-dtl {
@@ -114,8 +105,3 @@ html, body {
     background-color: #bd362f;
 }
 
-.animation {
-    transition: all 0.5s;
-    transform: translateX(8rem);
-    /* opacity: 0; */
-}

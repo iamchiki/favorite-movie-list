@@ -130,10 +130,8 @@ const movieListDiv = document.getElementById('movie-list')
 movieListDiv.addEventListener('click', (e) => {
 
     if (e.target.tagName === 'I') {
-        e.target.closest('.movie-info').classList.add('animation');
-        // e.target.closest('.movie-info').remove();
-        Movie.deleteFromLocalStorage(e.target.closest('.movie-info'));
         e.target.closest('.movie-info').remove();
+        Movie.deleteFromLocalStorage(e.target.closest('.movie-info'));
 
         const movieName = e.target.closest('.movie-info').firstElementChild.innerText;
         const msg = `${movieName} movie has been Removed from List`;
