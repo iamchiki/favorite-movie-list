@@ -69,6 +69,30 @@ class Movie {
 }
 
 
+// Alert class to show notification message
+class Alert {
+
+    static showNotification(msg, className) {
+
+        const containerElem = document.getElementById('container');
+
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'alert';
+        msgDiv.classList.add(className);
+
+        const msgElem = document.createElement('h4');
+        msgElem.innerHTML = `${msg}`;
+        msgDiv.append(msgElem);
+
+        containerElem.prepend(msgDiv);
+
+        setTimeout(() => {
+            msgDiv.remove();
+        }, 2000);
+    }
+}
+
+
 // Event Listners
 
 // add movie
@@ -81,13 +105,22 @@ addMovieBtn.addEventListener('click', (e) => {
     const director = document.getElementById('director').value;
     const year = document.getElementById('year').value;
 
-    const movie = new Movie(name, director, year);
-    movie.addMovie();
+    if (name == '' || director == '' || year == '') {
 
-    document.getElementById('name').value = '';
-    document.getElementById('director').value = '';
-    document.getElementById('year').value = '';
+        const msg = 'Please fill input Fields';
+        Alert.showNotification(msg, 'alert-error');
 
+    } else {
+        const movie = new Movie(name, director, year);
+        movie.addMovie();
+
+        const msg = `${movie.name} movie has been Added to List`;
+        Alert.showNotification(msg, 'alert-success');
+
+        document.getElementById('name').value = '';
+        document.getElementById('director').value = '';
+        document.getElementById('year').value = '';
+    }
 });
 
 
@@ -97,8 +130,14 @@ const movieListDiv = document.getElementById('movie-list')
 movieListDiv.addEventListener('click', (e) => {
 
     if (e.target.tagName === 'I') {
-        e.target.closest('.movie-info').remove();
+        e.target.closest('.movie-info').classList.add('animation');
+        // e.target.closest('.movie-info').remove();
         Movie.deleteFromLocalStorage(e.target.closest('.movie-info'));
+        e.target.closest('.movie-info').remove();
+
+        const movieName = e.target.closest('.movie-info').firstElementChild.innerText;
+        const msg = `${movieName} movie has been Removed from List`;
+        Alert.showNotification(msg, 'alert-success');
     }
 });
 
@@ -110,5 +149,12 @@ displayBtn.addEventListener('click', (e) => {
     e.preventDefault();
 
     let moviList = Movie.getMovieList();
-    Movie.displayMovies(moviList);
+
+    if (moviList != null && moviList.length != 0) {
+        Movie.displayMovies(moviList);
+    } else {
+        const msg = 'There is no movie in list ! Please Add one';
+        Alert.showNotification(msg, 'alert-error');
+    }
+
 });
