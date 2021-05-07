@@ -130,6 +130,7 @@ html, body {
 
     #movie-list {
         width: 80%;
+        margin-top: 30px;
     }
 
     .alert {
