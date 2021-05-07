@@ -37,7 +37,11 @@ class Movie {
 
         const movieDtlDiv = document.createElement('div');
         movieDtlDiv.className = 'movie-dtl';
-        movieDtlDiv.innerHTML = `<p>Directed By : ${movie.director} | Releasd in : ${movie.year}</p>`;
+
+        const innerDiv = document.createElement('div');
+        innerDiv.innerHTML = `<p>Directed By : ${movie.director}</p>
+                              <p>Releasd in : ${movie.year}</p>`;
+        movieDtlDiv.append(innerDiv);
 
         const trashIcon = document.createElement('i');
         trashIcon.className = 'fas fa-trash-alt';
