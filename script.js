@@ -84,6 +84,11 @@ class Alert {
         msgElem.innerHTML = `${msg}`;
         msgDiv.append(msgElem);
 
+        const firstContainerElem = containerElem.firstElementChild;
+        if (firstContainerElem.matches('.alert')) {
+            firstContainerElem.remove();
+        }
+
         containerElem.prepend(msgDiv);
 
         setTimeout(() => {
